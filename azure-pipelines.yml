@@ -18,11 +18,9 @@ variables:
   targetRuntime: 'linux-x64'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+- task: UseDotNet@2
+- script: dotnet restore
+  displayName: 'Nuget Packages restore'
 
 - task: UseDotNet@2
   inputs:
